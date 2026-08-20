@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obj 1 — Box Model: content-box vs border-box</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Objetivo 1: El Box Model</h1>
+  <p class="subtitle">Ambas cajas tienen <code>width: 300px</code>, <code>padding: 20px</code> y <code>border: 5px solid</code>.</p>
+
+  <div class="comparison">
+    <div class="case">
+      <h2>❌ content-box (default)</h2>
+      <div class="box content-box">300px</div>
+      <div class="calc">
+        <p>width (300) + padding (20×2) + border (5×2)</p>
+        <p class="result bad">= <strong>350px</strong> de ancho real 😱</p>
+      </div>
+    </div>
+
+    <div class="case">
+      <h2>✅ border-box</h2>
+      <div class="box border-box">300px</div>
+      <div class="calc">
+        <p>width (300) incluye padding y border</p>
+        <p class="result good">= <strong>300px</strong> de ancho real ✅</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule">
+    <strong>Regla #1:</strong> Siempre pon <code>*, *::before, *::after { box-sizing: border-box; }</code> al inicio de tu CSS.
+  </div>
+</body>
+</html>
